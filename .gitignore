@@ -1,0 +1,39 @@
+# ---- MPLAB X / XC8 build output ----
+build/
+dist/
+out/
+debug/
+.generated_files/
+nbproject/private/
+nbproject/Makefile-local-*.mk
+nbproject/Makefile-genesis.properties
+*.o
+*.o.d
+*.map
+*.elf
+*.hex
+*.lst
+*.sym
+memoryfile.xml
+funclist
+mem.map
+
+# ---- MPLAB extensions for VS Code (CMake/Ninja, generated) ----
+_build/
+cmake/
+compile_commands.json
+.cache/
+
+# ---- MCC autosave / backups ----
+mcc-manifest-autosave.yml
+*.mc3.bak*
+*.bak
+*.bak_*
+
+# ---- IDE / OS ----
+.vs/
+.vscode/*.backup
+.idea/
+Thumbs.db
+desktop.ini
+*~

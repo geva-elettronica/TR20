@@ -1,0 +1,195 @@
+{
+    "importedFrom": "./",
+    "version": "1.8",
+    "configurations": [
+        {
+            "name": "default",
+            "id": "",
+            "device": "ATmega328PB",
+            "imageType": "application",
+            "imagePath": "./out/TR20-Modbus/default.elf",
+            "toolProperties": "default-tool",
+            "tool": "Simulator",
+            "packs": [
+                {
+                    "name": "ATmega_DFP",
+                    "vendor": "Microchip",
+                    "version": "3.4.282"
+                }
+            ],
+            "fileSet": "Project files",
+            "toolchain": "default-XC8",
+            "userVariables": "default-uservariables",
+            "preBuildSteps": [],
+            "postBuildSteps": []
+        }
+    ],
+    "propertyGroups": [
+        {
+            "name": "default-uservariables",
+            "type": "uservariables",
+            "properties": {}
+        },
+        {
+            "name": "default-XC8",
+            "type": "toolchain",
+            "provider": "microchip.toolchains:xc8@3.00",
+            "properties": {
+                "XC8-config-global.wpo-lto": true,
+                "HI-TECH-COMP.extra-include-directories": [
+                    "../Library",
+                    "mcc_generated_files",
+                    "."
+                ],
+                "HI-TECH-COMP.asmlist": true,
+                "HI-TECH-COMP.optimization-level": "-O3",
+                "HI-TECH-COMP.optimization-assembler-files": true,
+                "HI-TECH-COMP.tentative-definitions": "-fno-common",
+                "HI-TECH-LINK.input-libraries": [
+                    "libm"
+                ],
+                "HI-TECH-LINK.extra-lib-directories": [
+                    "."
+                ],
+                "HI-TECH-LINK.fill-flash-options-how": "0",
+                "HI-TECH-LINK.fill-flash-options-seq": "",
+                "HI-TECH-COMP.disable-optimizations": true,
+                "HI-TECH-COMP.favor-optimization-for": "-speed,+space",
+                "HI-TECH-COMP.identifier-length": "255",
+                "HI-TECH-COMP.operation-mode": "pro",
+                "HI-TECH-COMP.opt-xc8-compiler-strict_ansi": false,
+                "HI-TECH-COMP.optimization-assembler": true,
+                "HI-TECH-COMP.optimization-invariant-enable": false,
+                "HI-TECH-COMP.optimization-invariant-value": "16",
+                "HI-TECH-COMP.optimization-speed": false,
+                "HI-TECH-COMP.optimization-stable-enable": false,
+                "HI-TECH-COMP.use-iar": false,
+                "HI-TECH-COMP.appendMe": [
+                    "-mconst-data-in-progmem"
+                ],
+                "HI-TECH-LINK.additional-options-checksumAVR2": "0",
+                "HI-TECH-LINK.additional-options-fillAVR2": "0",
+                "HI-TECH-LINK.additional-options-trace-type": "",
+                "HI-TECH-LINK.additional-options-use-response-files": false,
+                "HI-TECH-LINK.checksum-flash-options-addressce": "",
+                "HI-TECH-LINK.checksum-flash-options-addresscs": "",
+                "HI-TECH-LINK.checksum-flash-options-algorithmc": "Select checksum algorithm",
+                "HI-TECH-LINK.checksum-flash-options-destc": "",
+                "HI-TECH-LINK.checksum-flash-options-offsetc": "0xFFFF",
+                "HI-TECH-LINK.checksum-flash-options-widthc": "2",
+                "HI-TECH-LINK.clear-bss": true,
+                "HI-TECH-LINK.create-html-files": false,
+                "HI-TECH-LINK.data-model-size-of-double": "24",
+                "HI-TECH-LINK.data-model-size-of-float": "24",
+                "HI-TECH-LINK.fill-flash-options-addrfe": "",
+                "HI-TECH-LINK.fill-flash-options-addrfs": "",
+                "HI-TECH-LINK.fill-flash-options-constf": "",
+                "HI-TECH-LINK.fill-flash-options-wwidthf": "2",
+                "HI-TECH-LINK.link-in-c-library": true,
+                "HI-TECH-LINK.link-in-peripheral-library": false,
+                "XC8-config-global.advanced-elf": true,
+                "XC8-config-global.gcc-opt-driver-new": true,
+                "XC8-config-global.omit-pack-options": false,
+                "XC8-config-global.output-file-format": "-mcof,+elf"
+            }
+        },
+        {
+            "name": "default-tool",
+            "type": "tool",
+            "properties": {
+                "AutoSelectMemRanges": "auto",
+                "SecureSegment.SegmentProgramming": "FullChipProgramming",
+                "ToolFirmwareFilePath": "Press to browse for a specific firmware version",
+                "ToolFirmwareOption.UpdateOptions": "ToolFirmwareOption.UseLatest",
+                "ToolFirmwareToolPack": "Press to select which tool pack to use",
+                "communication.activationmode": "nohv",
+                "communication.interface": "dw",
+                "communication.interface.jtag": "2wire",
+                "communication.speed": "0.125",
+                "debugoptions.debug-startup": "Use system settings",
+                "debugoptions.reset-behaviour": "Use system settings",
+                "debugoptions.useswbreakpoints": false,
+                "event.recorder.debugger.behavior": "Running",
+                "event.recorder.enabled": false,
+                "event.recorder.scvd.files": "",
+                "hwtoolclock.frcindebug": false,
+                "lastid": "",
+                "memories.aux": false,
+                "memories.bootflash": true,
+                "memories.configurationmemory": true,
+                "memories.configurationmemory2": true,
+                "memories.dataflash": true,
+                "memories.eeprom": true,
+                "memories.exclude.configurationmemory": true,
+                "memories.flashdata": true,
+                "memories.id": true,
+                "memories.instruction.ram.ranges": "${memories.instruction.ram.ranges}",
+                "memories.programmemory": true,
+                "memories.programmemory.ranges": "0-3fff",
+                "poweroptions.powerenable": false,
+                "programmerToGoImageName": "TR20-Modbus_ptg",
+                "programoptions.donoteraseauxmem": false,
+                "programoptions.eraseb4program": true,
+                "programoptions.ledbrightness": "5",
+                "programoptions.pgcconfig": "pull down",
+                "programoptions.pgcresistor.value": "4.7",
+                "programoptions.pgdconfig": "pull down",
+                "programoptions.pgdresistor.value": "4.7",
+                "programoptions.pgmentry.voltage": "low",
+                "programoptions.pgmspeed": "Med",
+                "programoptions.preservedataflash": false,
+                "programoptions.preserveeeprom": false,
+                "programoptions.preserveeeprom.ranges": "",
+                "programoptions.preserveprogram.ranges": "",
+                "programoptions.preserveprogramrange": false,
+                "programoptions.preserveuserid": false,
+                "programoptions.program.otpconfig": false,
+                "programoptions.programcalmem": false,
+                "programoptions.programuserotp": false,
+                "programoptions.smart.program": "When debugging only",
+                "programoptions.testmodeentrymethod": "VDDFirst",
+                "ptgProgramImage": true,
+                "ptgSendImage": true,
+                "toolpack.updateoptions": "toolpack.updateoptions.uselatestoolpack",
+                "toolpack.updateoptions.packversion": "Press to select which tool pack to use",
+                "voltagevalue": "5.0"
+            }
+        }
+    ],
+    "fileSets": [
+        {
+            "name": "Project files",
+            "files": [
+                "mcc_generated_files/system/utils/utils_assert.h",
+                "mcc_generated_files/system/utils/interrupt_avr8.h",
+                "mcc_generated_files/system/utils/compiler.h",
+                "mcc_generated_files/system/utils/atomic.h",
+                "mcc_generated_files/system/utils/utils.h",
+                "Makefile",
+                "../Library/mfrc630.c",
+                "../Library/TR20_hw.c",
+                "../Library/Timer.c",
+                "mcc_generated_files/generic_driver_interfaces/*",
+                "mcc_generated_files/peripheral/**/*",
+                "mcc_generated_files/spi/**/*",
+                "mcc_generated_files/system/*",
+                "mcc_generated_files/system/utils/assembler/*",
+                "mcc_generated_files/tc0/**/*",
+                "mcc_generated_files/tc16/**/*",
+                "mcc_generated_files/touch/example/*",
+                "mcc_generated_files/touch/include/*",
+                "mcc_generated_files/touch/*",
+                "mcc_generated_files/uart/**/*",
+                "*.c",
+                "*.mc3",
+                "mcc_generated_files/system/src/*",
+                "../Library/PetitModbus/*.c",
+                {
+                    "include": "mcc_generated_files/touch/libraries/*",
+                    "type": "library"
+                }
+            ],
+            "encoding": "ISO-8859-1"
+        }
+    ]
+}

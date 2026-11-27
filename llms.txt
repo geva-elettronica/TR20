@@ -1,0 +1,32 @@
+# GEVA TR20
+
+> The TR20 is a wall-mounted RFID card reader with a 12-key capacitive touch keypad, made by GEVA Elettronica (Italy) for hotel and access-control installations. It is built on an ATmega328PB (AVR 8-bit, 32 KB flash, F_CPU 8 MHz), reads ISO/IEC 14443-A (MIFARE) cards through an NXP MFRC630, and acts as a Modbus RTU slave on an RS485 half-duplex bus. It drives two relays (door lock and room light), a buzzer, a vibration motor and red/green LED rings, and has two digital inputs plus a setup contact. This repository is the complete open firmware: it builds with MPLAB XC8 under MPLAB X or the MPLAB extensions for VS Code, and is loaded onto the reader over the RS485 bus with a resident bootloader — no programmer needed.
+
+The firmware holds no access logic: it publishes what it reads (keypad buffer, card UID, inputs) in its Modbus holding registers and executes the commands the supervisor writes there (relays, buzzer, vibration, LEDs, and ready-made "access granted" / "access denied" sequences).
+
+## Documentation
+- [README](README.md): product overview, toolchain, how to build, how to load the firmware, and a summary of the hardware layer.
+- [AGENTS.md](AGENTS.md): programming guide for LLMs and AI coding agents — the hardware layer, the MFRC630 output shadow register, the RS485 TxEn transmit path, the Modbus main loop, interrupts in use, the build, and the mistakes that bite on this board.
+- [CLAUDE.md](CLAUDE.md): short orientation for Claude Code, pointing at AGENTS.md.
+- [docs/modbus-register-map.md](docs/modbus-register-map.md): the complete Modbus RTU register map — keypad buffer, card UID, input status, command bits, options.
+- [docs/configuration.md](docs/configuration.md): EEPROM map and the keypad setup sequence that sets the Modbus address, baud rate and keypad enable.
+- [docs/firmware-upload.md](docs/firmware-upload.md): loading a build onto the reader with a USB-to-RS485 adapter and the Bootloader PC tool, and the 0x3E00 flash limit.
+
+## Firmware projects
+- [TR20-Modbus/main.c](TR20-Modbus/main.c): the production firmware — Modbus RTU slave with RFID reading, keypad buffer, relays, buzzer, vibration, LEDs and keypad-based commissioning.
+- [TR20-Modbus/define.h](TR20-Modbus/define.h): the single include for the Modbus project, and the PROJECT_TIMER_UART_CALL hook that drives the Modbus timer from the 1 ms tick.
+- [TR20-Test/main.c](TR20-Test/main.c): bench-test firmware with no Modbus — the smallest complete example of using the hardware layer, and a good base for custom firmware.
+
+## Shared library
+- [Library/TR20_hw.h](Library/TR20_hw.h): the hardware abstraction header — every pin and output macro, the input macros, the buzzer note constants and the EEPROM helpers. Read this file rather than guessing a name.
+- [Library/TR20_hw.c](Library/TR20_hw.c): board init, 1 ms tick, keypad scan (QTouch), RFID polling, buzzer, interrupt-safe EEPROM.
+- [Library/Timer.h](Library/Timer.h): lightweight non-blocking software timer on millis().
+- [Library/mfrc630.h](Library/mfrc630.h): NXP MFRC630 RFID driver (by Ivor Wanders, MIT).
+- [Library/PetitModbus/PetitModbus.h](Library/PetitModbus/PetitModbus.h): Petit Modbus RTU slave stack (by Firat Deveci, with GEVA modifications) — functions 03, 06 and 16, 30 holding registers.
+
+## Agent skill
+- [.claude/skills/tr20-firmware/SKILL.md](.claude/skills/tr20-firmware/SKILL.md): Claude Code skill with the non-negotiable rules for writing TR20 firmware.
+
+## Optional
+- Manufacturer: GEVA Elettronica — https://www.gevaelettronica.it (info@gevaelettronica.it)
+- Bootloader PC tool and firmware downloads: https://download.gevaelettronica.it/Hotel/
