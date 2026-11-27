@@ -1,6 +1,6 @@
 # GEVA TR20 — open firmware
 
-![GEVA TR20](images/TR20_KEY.PNG)
+![GEVA TR20](images/TR20_key.png)
 
 **TR20** is a wall-mounted **RFID card reader with a 12-key capacitive touch keypad** for hotel and
 access-control installations, connected to the supervisor over an **RS485 / Modbus RTU** bus.
