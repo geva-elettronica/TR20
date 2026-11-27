@@ -182,9 +182,13 @@ The relay, LED and vibration lines hang off the **MFRC630 GPIO port**, not off A
 
 ---
 
+![GEVA TR20](images/TR20_RFID.png)
+
+![GEVA TR20](images/TR20_Rear.png)
+
 ## Buy / contact
 
-- Website: <https://www.gevaelettronica.it>
+- Website: <https://shop.gevaelettronica.it>
 - Email: info@gevaelettronica.it
 - Bootloader and tools: <https://download.gevaelettronica.it/Hotel/>
 
